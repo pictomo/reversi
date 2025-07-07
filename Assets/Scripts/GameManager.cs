@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public (int, int) boardSize = (8, 8);
+    int[,] board;
 
-    int[,] board = new int[8, 8];
     [SerializeField] GameObject square;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        board = new int[boardSize.Item1, boardSize.Item2];
         for (int i = 0; i < board.GetLength(0); i++)
         {
             for (int j = 0; j < board.GetLength(1); j++)
@@ -21,12 +24,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < board.GetLength(0); i++)
-        {
-            for (int j = 0; j < board.GetLength(1); j++)
-            {
-                Debug.Log(board[i, j]);
-            }
-        }
+
     }
 }
